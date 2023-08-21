@@ -1,11 +1,22 @@
 import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 export default function Login() {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-
-  console.log(watch("example")); // watch input value by passing the name of it
-
+  const { register, handleSubmit,  formState: { errors } } = useForm()
+    const onSubmit = async (data) => {
+      try {
+        const formData = { ...data };
+        console.log(formData);
+        const response = await axios.post('/login', formData);
+        console.log(response.data);
+        alert('Form submitted successfully!');
+      } 
+      catch (error) {
+        console.error(error);
+        alert('Form submission failed. Please try again later.');
+      } 
+        }
+    
   return (
     <section>
         <div className="register">
