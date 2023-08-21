@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import Custom_Login from "./Custom_Login";
 
 export default function Login() {
   const { register, handleSubmit,  formState: { errors } } = useForm()
@@ -22,17 +23,7 @@ export default function Login() {
         <div className="register">
             <div className="col-1">
                 <h2>Login</h2>
-                <form id='form' className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
-                    <input type="text" {...register("name",{required: true,maxLength: 20})} placeholder='Username' />
-                    {errors.username?.type === "required" && "this field is required"}
-
-                    <input type="password" {...register("email",{required:true})} placeholder='password' />
-                    {errors.password?.type === "required" && "this field  is required"}
-
-                    <button className='btn'> Login</button>
-                    
-                </form>
-
+                <Custom_Login />
             </div>
         </div>
     </section>
