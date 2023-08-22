@@ -23,7 +23,8 @@ export default function Login() {
         <div className="register">
             <div className="col-1">
                 <h2>Login</h2>
-                <Custom_Login />
+                 <Custom_Login /> 
+          
             </div>
         </div>
     </section>
